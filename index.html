@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Fotos Interactiva</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Galería de Fotos Interactiva</h1>
+        
+        <!-- Área de visualización principal -->
+        <div id="image" class="main-display">
+            <p id="imageText">Pasa el ratón sobre una imagen para mostrarla aquí.</p>
+        </div>
+
+        <!-- Imágenes en miniatura -->
+        <div class="gallery-grid">
+            <div class="image-container">
+                <img class="preview" 
+                     src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                     alt="Hermoso paisaje montañoso con picos nevados"
+                     title="Vista de Montaña"
+                     onmouseover="upDate(this)" 
+                     onmouseout="unDo()"
+                     onfocus="upDate(this)"
+                     onblur="unDo()"
+                     onclick="openLightbox(0)">
+                <p class="image-title">Vista de Montaña</p>
+            </div>
+
+            <div class="image-container">
+                <img class="preview" 
+                     src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                     alt="Lago sereno reflejando montañas al amanecer"
+                     title="Reflejo del Lago"
+                     onmouseover="upDate(this)" 
+                     onmouseout="unDo()"
+                     onfocus="upDate(this)"
+                     onblur="unDo()"
+                     onclick="openLightbox(1)">
+                <p class="image-title">Reflejo del Lago</p>
+            </div>
+
+            <div class="image-container">
+                <img class="preview" 
+                     src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                     alt="Bosque denso con árboles altos y luz solar filtrada"
+                     title="Sendero del Bosque"
+                     onmouseover="upDate(this)" 
+                     onmouseout="unDo()"
+                     onfocus="upDate(this)"
+                     onblur="unDo()"
+                     onclick="openLightbox(2)">
+                <p class="image-title">Sendero del Bosque</p>
+            </div>
+
+            <div class="image-container">
+                <img class="preview" 
+                     src="https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                     alt="Olas del océano rompiendo en la costa rocosa"
+                     title="Olas del Océano"
+                     onmouseover="upDate(this)" 
+                     onmouseout="unDo()"
+                     onfocus="upDate(this)"
+                     onblur="unDo()"
+                     onclick="openLightbox(3)">
+                <p class="image-title">Olas del Océano</p>
+            </div>
+
+            <div class="image-container">
+                <img class="preview" 
+                     src="https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                     alt="Campo de trigo dorado bajo cielo azul con nubes"
+                     title="Campo de Trigo"
+                     onmouseover="upDate(this)" 
+                     onmouseout="unDo()"
+                     onfocus="upDate(this)"
+                     onblur="unDo()"
+                     onclick="openLightbox(4)">
+                <p class="image-title">Campo de Trigo</p>
+            </div>
+
+            <div class="image-container">
+                <img class="preview" 
+                     src="https://images.pexels.com/photos/355321/pexels-photo-355321.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                     alt="Paisaje desértico con dunas de arena al atardecer"
+                     title="Atardecer en el Desierto"
+                     onmouseover="upDate(this)" 
+                     onmouseout="unDo()"
+                     onfocus="upDate(this)"
+                     onblur="unDo()"
+                     onclick="openLightbox(5)">
+                <p class="image-title">Atardecer en el Desierto</p>
+            </div>
+        </div>
+
+        <!-- Instrucciones -->
+        <div class="instructions">
+            <h2>Cómo usar la galería:</h2>
+            <ul>
+                <li><strong>Ratón:</strong> Pasa el cursor sobre las imágenes para previsualizarlas, haz clic para abrir el lightbox</li>
+                <li><strong>Teclado:</strong> Usa Tab para navegar, Enter o Espacio para abrir el lightbox</li>
+                <li><strong>Lightbox:</strong> Usa las flechas del teclado para navegar, Escape para cerrar</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <button class="nav-btn prev" onclick="navigateLightbox(-1)">&#10094;</button>
+            <img id="lightbox-img" src="" alt="">
+            <button class="nav-btn next" onclick="navigateLightbox(1)">&#10095;</button>
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-alt"></p>
+                <p id="lightbox-counter"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="gallery.js"></script>
+</body>
+</html>
